@@ -1,0 +1,56 @@
+﻿<Window x:Class="WpfApp2.Registration"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp2"
+        mc:Ignorable="d"
+        Title="Registration" Height="450" Width="800">
+    <Grid>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="175"/>
+            <RowDefinition Height="150"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Button Template="{StaticResource CTButon}" HorizontalAlignment="Left"  Content="Назад"  Click="btnClick_Back"/>
+
+        </Grid>
+        
+        <Grid Grid.Row="1">
+            
+            <StackPanel>
+
+                <WrapPanel Orientation="Horizontal">
+                    <TextBlock>Введите вашу фамилию</TextBlock>
+                    <TextBox Name="SurnameUsr" Width="300"  Margin="15,0,0,0"/>
+                </WrapPanel>
+                
+                <StackPanel>
+                    <WrapPanel Orientation="Horizontal">
+                        <TextBlock>Введите ваше имя</TextBlock>
+                        <TextBox Name="NameUsr" Width="300"  Margin="15,0,0,0"/>
+                    </WrapPanel>
+                </StackPanel>
+
+                <StackPanel>
+                    <WrapPanel Orientation="Horizontal">
+                        <TextBlock>Введите ваше отчество</TextBlock>
+                        <TextBox Name="PatronymicUsr" Width="300"  Margin="15,0,0,0"/>
+                    </WrapPanel>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock>Укажите ваш пол</TextBlock>
+                    <RadioButton Name="GenderM" Margin="15,0,0,0" >Мужской</RadioButton>
+                    <RadioButton Name="GenderF" Margin="15,0,0,0" >Женский</RadioButton>
+                    
+                </StackPanel>
+
+            </StackPanel>
+        </Grid>
+    
+    </Grid>
+</Window>
