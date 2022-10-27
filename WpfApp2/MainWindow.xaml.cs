@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfApp2.Classes;
+using WpfApp2.Pages;
 
 namespace WpfApp2
 {
@@ -24,7 +26,9 @@ namespace WpfApp2
         public MainWindow()
         {
             InitializeComponent();
-            Base.EM = new ShopModelEntities();
+            BaseClass.tBE = new ShopModelEntities();
+            FrameClass.MainFrame = fMain;
+            FrameClass.MainFrame.Navigate(new CreateProductPage());
 
             double screenHeight = SystemParameters.FullPrimaryScreenHeight;
             double screenWidth = SystemParameters.FullPrimaryScreenWidth;
@@ -35,16 +39,14 @@ namespace WpfApp2
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void btnAutorization_Click(object sender, RoutedEventArgs e)
         {
-            Registration nextReg = new Registration();
-            this.Close();
-            nextReg.Show();
+            FrameClass.MainFrame.Navigate(new AutorizationPage());
         }
-    }
 
-    class Base
-    {
-        public static ShopModelEntities EM;
+        private void btnRegistration_Click(object sender, RoutedEventArgs e)
+        {
+            FrameClass.MainFrame.Navigate(new RegistrationPage());
+        }
     }
 }

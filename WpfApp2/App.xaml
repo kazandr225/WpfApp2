@@ -4,13 +4,24 @@
              xmlns:local="clr-namespace:WpfApp2"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-
-        <ControlTemplate x:Key="CTButon" TargetType="Button">
-            <Border BorderBrush="Black"
-                    Background="LightBlue" Width="100" Height="35">
-                <ContentControl Content="{TemplateBinding Content}" HorizontalContentAlignment="Center" Padding="3" Margin="3"/>
-            </Border>
-        </ControlTemplate>
         
+        <Style x:Key="btnMaint" TargetType="Button">
+            <Setter Property="Background" Value="ForestGreen"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Width" Value="150"/>
+            <Setter Property="Margin" Value="8"/>
+        </Style>
+        
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="GreenYellow"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Margin" Value="7"/>
+        </Style>
+        
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="24"/>
+        </Style>
+
     </Application.Resources>
 </Application>
