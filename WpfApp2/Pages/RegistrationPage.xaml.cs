@@ -53,7 +53,7 @@ namespace WpfApp2.Pages
             };
             BaseClass.tBE.Users.Add(userTable);
             BaseClass.tBE.SaveChanges();
-            MessageBox.Show("Пользователь добавлен");
+            MessageBox.Show("Вы зарегистрировались!");
             FrameClass.MainFrame.Navigate(new MainPage());
         }
         private void btnBackMain_Click(object sender, RoutedEventArgs e)

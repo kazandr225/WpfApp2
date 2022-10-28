@@ -19,7 +19,7 @@
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Image Height="80" Width="100" Source="Resources/logotip.jpg" Grid.Row="0" Grid.Column="0"></Image>
-        <TextBlock Grid.Row="0" Grid.Column="1" Margin="10" FontSize="36" HorizontalAlignment="Center">Название приложения</TextBlock>
+        <TextBlock Grid.Row="0" Grid.Column="1" Margin="10" FontSize="36" HorizontalAlignment="Center">Корзинка</TextBlock>
         <StackPanel HorizontalAlignment="Right" Grid.Column="2" Grid.Row="0">
             <Button Name="btnAutorization" Click="btnAutorization_Click" >Авторизация</Button>
             <Button Name="btnregistration" Click="btnRegistration_Click" >Регистрация</Button>

@@ -25,9 +25,35 @@ namespace WpfApp2.Pages
         {
             InitializeComponent();
         }
-        private void btnBackMain_Click(object sender, RoutedEventArgs e)
+        private void btnBackMain_Click(object sender, RoutedEventArgs e) //назад на главную
         {
             FrameClass.MainFrame.Navigate(new MainPage());
+        }
+        private void btnAutorization_Click(object sender, RoutedEventArgs e) //авторизация
+        {
+            int p = pbPasword.Password.GetHashCode();
+
+            Users autoUser = BaseClass.tBE.Users.FirstOrDefault(x => x.Login == tboxLogin.Text && x.Password == p);
+
+            if (autoUser == null)
+            {
+                MessageBox.Show("Такого пользователя нет");
+            }
+            else 
+            {
+                switch (autoUser.id_Role) //проверка роли пользователя, если он найден
+                {
+                case 1:
+                        FrameClass.MainFrame.Navigate(new AdminPage()); //окно администратора
+                        break;
+                        case 2:
+                        MessageBox.Show("Добро пожаловать");
+                        break;
+                        default:
+                        MessageBox.Show("Пока");
+                        break;
+                }
+            }
         }
     }
 }

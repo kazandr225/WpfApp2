@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfApp2.Classes;
 
 namespace WpfApp2.Pages
 {
@@ -23,6 +24,29 @@ namespace WpfApp2.Pages
         public AdminPage()
         {
             InitializeComponent();
+            dgUsers.ItemsSource = BaseClass.tBE.Users.ToList();
         }
+
+        private void btnShowUser_Click(object sender, RoutedEventArgs e) //вывести список пользователей
+        {
+            dgUsers.Visibility = Visibility.Visible;
+            btnShowUser.Visibility = Visibility.Collapsed;
+            btnPrivateUser.Visibility = Visibility.Visible;
+        }
+        private void btnPrivateUser_Click(object sender, RoutedEventArgs e) //скрыть список пользователей
+        { 
+            dgUsers.Visibility= Visibility.Collapsed;
+            btnPrivateUser.Visibility= Visibility.Visible;
+            btnPrivateUser.Visibility = Visibility.Collapsed;
+        }
+        private void btnMain_Click(object sender, RoutedEventArgs e) //назад на главную
+        {
+            FrameClass.MainFrame.Navigate(new MainPage());
+        }
+        private void btnShowSells() //показать продажи
+        { 
+        
+        }
+
     }
 }

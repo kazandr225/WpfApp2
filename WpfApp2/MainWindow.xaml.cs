@@ -22,7 +22,9 @@ namespace WpfApp2
     /// </summary>
     public partial class MainWindow : Window
     {
-
+        //Данные администратора 
+        //Логин: Admin
+        //Пароль: Abgh123$
         public MainWindow()
         {
             InitializeComponent();
@@ -30,10 +32,9 @@ namespace WpfApp2
             FrameClass.MainFrame = fMain;
             FrameClass.MainFrame.Navigate(new CreateProductPage());
 
+            //Устанавливаем окно по центру экрана
             double screenHeight = SystemParameters.FullPrimaryScreenHeight;
             double screenWidth = SystemParameters.FullPrimaryScreenWidth;
-
-
             this.Top = (screenHeight - this.Height) / 2;
             this.Left = (screenWidth - this.Width) / 2;
 
