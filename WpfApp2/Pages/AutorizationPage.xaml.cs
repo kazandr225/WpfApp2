@@ -37,7 +37,7 @@ namespace WpfApp2.Pages
 
             if (autoUser == null)
             {
-                MessageBox.Show("Такого пользователя нет");
+                MessageBox.Show("Проверьте введенные данные!","Такого пользователя нет");
             }
             else 
             {
@@ -47,7 +47,7 @@ namespace WpfApp2.Pages
                         FrameClass.MainFrame.Navigate(new AdminPage()); //окно администратора
                         break;
                         case 2:
-                        MessageBox.Show("Добро пожаловать");
+                        FrameClass.MainFrame.Navigate(new UserPage());
                         break;
                         default:
                         MessageBox.Show("Пока");
