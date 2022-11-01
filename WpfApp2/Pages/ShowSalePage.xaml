@@ -9,6 +9,33 @@
       Title="ShowSalePage">
 
     <Grid>
-        
+        <ListView Name="listSale" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel HorizontalAlignment="Center"></WrapPanel>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            
+            <ListView.ItemTemplate>
+            <DataTemplate>
+                    <Border Padding="5" CornerRadius="5" BorderThickness="1" BorderBrush="Aquamarine">
+                        <Grid Name="gridMain" Width="500" Height="500" Background="{Binding GenderColor}">
+                            <StackPanel>
+                                <TextBlock Text="{Binding Product.Name_Product}"/>
+                                <TextBlock Uid="{Binding id_Sale}" Name="tbAmountSale" Loaded="tbAmountSale_Loaded"></TextBlock>
+                                
+                                
+                                <TextBlock Text="{Binding Employee.Surname}"></TextBlock>
+                                <TextBlock Text="{Binding Employee.Name}"></TextBlock>
+                                <TextBlock Text="{Binding Employee.Patronymic}"></TextBlock>
+                                
+                                
+                            </StackPanel> 
+                        </Grid>
+                    </Border>
+            </DataTemplate>
+            
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </Page>

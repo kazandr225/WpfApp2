@@ -36,7 +36,7 @@
                         <RadioButton Name="rbWomen">Женский</RadioButton>
                     </StackPanel>
                 </GroupBox>
-                <GroupBox Header="Выберите роль">
+                <GroupBox Visibility="Collapsed">
                     <ComboBox Name="cbRole"/>
                 </GroupBox>
                 <Button Name="btnRegistration" Click="btnRegistration_Click">Регистрация</Button>

@@ -24,7 +24,13 @@ namespace WpfApp2.Pages
         public AdminPage()
         {
             InitializeComponent();
+
             dgUsers.ItemsSource = BaseClass.tBE.Users.ToList();
+            dgUsers.ItemsSource = BaseClass.tBE.Gender.ToList();
+            dgUsers.SelectedValuePath = "idGender";
+            dgUsers.DisplayMemberPath = "Gender";
+
+
         }
 
         private void btnShowUser_Click(object sender, RoutedEventArgs e) //вывести список пользователей
@@ -38,15 +44,16 @@ namespace WpfApp2.Pages
             dgUsers.Visibility= Visibility.Collapsed;
             btnPrivateUser.Visibility= Visibility.Visible;
             btnPrivateUser.Visibility = Visibility.Collapsed;
+            btnShowUser.Visibility = Visibility.Visible;
         }
         private void btnMain_Click(object sender, RoutedEventArgs e) //назад на главную
         {
             FrameClass.MainFrame.Navigate(new MainPage());
         }
-        private void btnShowSells() //показать продажи
-        { 
-        
-        }
 
+        private void btnShowSale_Click(object sender, RoutedEventArgs e)
+        {
+            FrameClass.MainFrame.Navigate(new ShowSalePage());
+        }
     }
 }

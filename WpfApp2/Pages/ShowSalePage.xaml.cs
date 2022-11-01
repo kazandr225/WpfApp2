@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfApp2.Classes;
 
 namespace WpfApp2.Pages
 {
@@ -23,6 +24,21 @@ namespace WpfApp2.Pages
         public ShowSalePage()
         {
             InitializeComponent();
+            listSale.ItemsSource = BaseClass.tBE.Sale.ToList();
         }
+
+        private void tbAmountSale_Loaded() //Общее количество проданного товара
+        { 
+        
+        }
+        private void tbSale_Loaded() //Сумма полученных средств за определенный вид товара
+        {
+
+        }
+        private void tbENDSale_Loaded() //Сумма полученных с операции средств
+        {
+
+        }
+        
     }
 }

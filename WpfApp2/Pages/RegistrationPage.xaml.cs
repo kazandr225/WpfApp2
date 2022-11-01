@@ -37,6 +37,7 @@ namespace WpfApp2.Pages
             try
             {
                 //добавляем пол
+                int rol = 2;
                 int g = 0;
                 if (rbMen.IsChecked == true) g = 1;
                 if (rbWomen.IsChecked == true) g = 2;
@@ -60,7 +61,7 @@ namespace WpfApp2.Pages
                     Login = tboxLogin.Text,
                     Password = pbPassword.Password.GetHashCode(),
                     id_Gender = g,
-                    id_Role = cbRole.SelectedIndex + 1
+                    id_Role = rol
 
                 };
                 BaseClass.tBE.Users.Add(userTable);
