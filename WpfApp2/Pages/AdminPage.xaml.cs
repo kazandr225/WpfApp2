@@ -21,10 +21,12 @@ namespace WpfApp2.Pages
     /// </summary>
     public partial class AdminPage : Page
     {
-        public AdminPage()
+        Users user;
+        public AdminPage(Users user)
         {
             InitializeComponent();
 
+            this.user = user;
             dgUsers.ItemsSource = BaseClass.tBE.Users.ToList();
             dgUsers.ItemsSource = BaseClass.tBE.Gender.ToList();
             dgUsers.SelectedValuePath = "idGender";

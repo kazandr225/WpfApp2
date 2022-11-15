@@ -22,7 +22,7 @@
                         <Grid Name="gridMain" Width="500" Height="500" Background="{Binding GenderColor}">
                             <StackPanel>
                                 <TextBlock Text="{Binding Product.Name_Product}"/>
-                                <TextBlock Uid="{Binding id_Sale}" Name="tbAmountSale" Loaded="tbAmountSale_Loaded"></TextBlock>
+                                <!--<TextBlock Uid="{Binding id_Sale}" Name="tbAmountSale" Loaded="tbAmountSale_Loaded"></TextBlock>-->
                                 
                                 
                                 <TextBlock Text="{Binding Employee.Surname}"></TextBlock>

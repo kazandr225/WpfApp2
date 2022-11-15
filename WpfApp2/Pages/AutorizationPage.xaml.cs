@@ -44,7 +44,7 @@ namespace WpfApp2.Pages
                 switch (autoUser.id_Role) //проверка роли пользователя, если он найден
                 {
                 case 1:
-                        FrameClass.MainFrame.Navigate(new AdminPage()); //окно администратора
+                        FrameClass.MainFrame.Navigate(new AdminPage(autoUser)); //окно администратора
                         break;
                         case 2:
                         FrameClass.MainFrame.Navigate(new UserPage());
