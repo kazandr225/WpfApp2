@@ -21,9 +21,12 @@ namespace WpfApp2.Pages
     /// </summary>
     public partial class UserPage : Page
     {
-        public UserPage()
+        Users user;
+        public UserPage(Users user)
         {
             InitializeComponent();
+            this.user = user;
+            
         }
         private void btnBackMain_Click(object sender, RoutedEventArgs e) //назад на главную
         {

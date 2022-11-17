@@ -12,13 +12,13 @@
         <StackPanel>
             <Button Name ="btnShowUser" Click="btnShowUser_Click">Просмотр списка пользователей</Button>
             <Button Name="btnPrivateUser" Click="btnPrivateUser_Click" Visibility="Collapsed">Скрыть список пользователей</Button>
-            <DataGrid ColumnWidth="*" Visibility="Collapsed" Name="dgUsers" FontSize="20" AutoGenerateColumns="False">
+            <DataGrid ColumnWidth="*" Visibility="Collapsed" Name="dgUsers" FontSize="20" AutoGenerateColumns="False" CanUserAddRows="False" HorizontalAlignment="Center">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Фамилия" Binding="{Binding Surname_User}"></DataGridTextColumn>
                     <DataGridTextColumn Header="Имя" Binding="{Binding Name_User}"></DataGridTextColumn>
                     <DataGridTextColumn Header="Отчество" Binding="{Binding Patronymic_User}"></DataGridTextColumn>
                     <DataGridTextColumn Header="Дата рождения" Binding="{Binding Birthday_User, StringFormat=dd.MM.yyyy}"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Пол" Binding="{Binding Gender.Gender}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Пол" Binding="{Binding Gender.Gender1}"></DataGridTextColumn>
                 </DataGrid.Columns>
             </DataGrid>
             <Button Name="btnSalles" Click="btnShowSale_Click">Показать продажи</Button>

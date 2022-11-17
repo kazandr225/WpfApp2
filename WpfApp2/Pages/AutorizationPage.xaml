@@ -11,10 +11,10 @@
     <Grid>
         <StackPanel>
             <GroupBox Header="Введите логин">
-                <TextBox Name="tboxLogin">Логин</TextBox>
+                <TextBox Name="tboxLogin">Admin</TextBox>
             </GroupBox>
             <GroupBox Header="Введите пароль">
-                <PasswordBox Name="pbPasword" Password="Пароль"></PasswordBox>
+                <PasswordBox Name="pbPasword" Password="Abgh123$"></PasswordBox>
             </GroupBox>
             <Button Click="btnAutorization_Click">Авторизация</Button>
             <Button Name="btnBackMain" Click="btnBackMain_Click">Назад на главную</Button>

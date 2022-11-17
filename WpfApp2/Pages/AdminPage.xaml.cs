@@ -26,12 +26,15 @@ namespace WpfApp2.Pages
         {
             InitializeComponent();
 
-            this.user = user;
-            dgUsers.ItemsSource = BaseClass.tBE.Users.ToList();
-            dgUsers.ItemsSource = BaseClass.tBE.Gender.ToList();
+            //this.user = user;
+            //dgUsers.ItemsSource = BaseClass.tBE.Users.ToList();
+            //
+            
+            this.user = user;  //  заполняем выше созданный объект информацией об авторизованном пользователе
+            dgUsers.ItemsSource = BaseClass.tBE.Users.ToList(); // заполняем DataGrid записями из таблицы БД (UserTable)
             dgUsers.SelectedValuePath = "idGender";
             dgUsers.DisplayMemberPath = "Gender";
-
+            
 
         }
 

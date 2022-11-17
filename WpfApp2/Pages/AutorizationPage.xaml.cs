@@ -47,7 +47,7 @@ namespace WpfApp2.Pages
                         FrameClass.MainFrame.Navigate(new AdminPage(autoUser)); //окно администратора
                         break;
                         case 2:
-                        FrameClass.MainFrame.Navigate(new UserPage());
+                        FrameClass.MainFrame.Navigate(new UserPage(autoUser)); //окно пользователя
                         break;
                         default:
                         MessageBox.Show("Пока");

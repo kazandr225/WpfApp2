@@ -6,9 +6,17 @@
       xmlns:local="clr-namespace:WpfApp2.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="CreateProductPage">
+      Title="CreateProductPage" FontSize="18">
 
     <Grid>
+        <ScrollViewer>
+            <StackPanel>
+                <GroupBox Header="Введите">
+                    
+                </GroupBox>
+            </StackPanel>
+        </ScrollViewer>
+        
         
     </Grid>
 </Page>

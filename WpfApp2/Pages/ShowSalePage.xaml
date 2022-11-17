@@ -23,8 +23,6 @@
                             <StackPanel>
                                 <TextBlock Text="{Binding Product.Name_Product}"/>
                                 <!--<TextBlock Uid="{Binding id_Sale}" Name="tbAmountSale" Loaded="tbAmountSale_Loaded"></TextBlock>-->
-                                
-                                
                                 <TextBlock Text="{Binding Employee.Surname}"></TextBlock>
                                 <TextBlock Text="{Binding Employee.Name}"></TextBlock>
                                 <TextBlock Text="{Binding Employee.Patronymic}"></TextBlock>
@@ -37,5 +35,6 @@
             
             </ListView.ItemTemplate>
         </ListView>
+        <Button HorizontalAlignment="Left" Height="35" VerticalAlignment="Top" Name="btnCreateSale" Click="btnCreateCat_Click">Добавить продажу</Button>
     </Grid>
 </Page>
