@@ -36,5 +36,6 @@ namespace WpfApp2
         public virtual DbSet<Supply> Supply { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Users> Users { get; set; }
+        public virtual DbSet<UsersPhoto> UsersPhoto { get; set; }
     }
 }

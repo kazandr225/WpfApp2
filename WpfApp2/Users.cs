@@ -14,6 +14,12 @@ namespace WpfApp2
     
     public partial class Users
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Users()
+        {
+            this.UsersPhoto = new HashSet<UsersPhoto>();
+        }
+    
         public int id_User { get; set; }
         public string Surname_User { get; set; }
         public string Name_User { get; set; }
@@ -26,5 +32,7 @@ namespace WpfApp2
     
         public virtual Gender Gender { get; set; }
         public virtual Role Role { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<UsersPhoto> UsersPhoto { get; set; }
     }
 }

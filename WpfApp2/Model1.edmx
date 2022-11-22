@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Contractor">
           <Key>
             <PropertyRef Name="id_Contractor" />
@@ -107,6 +107,15 @@
           <Property Name="Password" Type="int" Nullable="false" />
           <Property Name="Birthday_User" Type="date" Nullable="false" />
           <Property Name="id_Role" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UsersPhoto">
+          <Key>
+            <PropertyRef Name="id_Photo" />
+          </Key>
+          <Property Name="id_Photo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_User" Type="int" Nullable="false" />
+          <Property Name="Photo_Binary" Type="binary" MaxLength="50" Nullable="false" />
+          <Property Name="Photo_Path" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
         <Association Name="FK_Employee_Gender">
           <End Role="Gender" Type="Self.Gender" Multiplicity="1" />
@@ -216,6 +225,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_UsersPhoto_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="UsersPhoto" Type="Self.UsersPhoto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="id_User" />
+            </Principal>
+            <Dependent Role="UsersPhoto">
+              <PropertyRef Name="id_User" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="Хранилище ModelContainer">
           <EntitySet Name="Contractor" EntityType="Self.Contractor" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
@@ -228,6 +249,7 @@
           <EntitySet Name="Supply" EntityType="Self.Supply" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UsersPhoto" EntityType="Self.UsersPhoto" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Employee_Gender" Association="Self.FK_Employee_Gender">
             <End Role="Gender" EntitySet="Gender" />
             <End Role="Employee" EntitySet="Employee" />
@@ -264,9 +286,12 @@
             <End Role="Role" EntitySet="Role" />
             <End Role="Users" EntitySet="Users" />
           </AssociationSet>
+          <AssociationSet Name="FK_UsersPhoto_Users" Association="Self.FK_UsersPhoto_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UsersPhoto" EntitySet="UsersPhoto" />
+          </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -390,6 +415,7 @@
           <Property Name="id_Role" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Gender" Relationship="Self.FK_Users_Gender" FromRole="Users" ToRole="Gender" />
           <NavigationProperty Name="Role" Relationship="Self.FK_Users_Role" FromRole="Users" ToRole="Role" />
+          <NavigationProperty Name="UsersPhoto" Relationship="Model.FK_UsersPhoto_Users" FromRole="Users" ToRole="UsersPhoto" />
         </EntityType>
         <Association Name="FK_Supply_Contractor">
           <End Role="Contractor" Type="Self.Contractor" Multiplicity="1" />
@@ -547,7 +573,34 @@
             <End Role="Role" EntitySet="Role" />
             <End Role="Users" EntitySet="Users" />
           </AssociationSet>
+          <EntitySet Name="UsersPhoto" EntityType="Model.UsersPhoto" />
+          <AssociationSet Name="FK_UsersPhoto_Users" Association="Model.FK_UsersPhoto_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UsersPhoto" EntitySet="UsersPhoto" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="UsersPhoto">
+          <Key>
+            <PropertyRef Name="id_Photo" />
+          </Key>
+          <Property Name="id_Photo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_User" Type="Int32" Nullable="false" />
+          <Property Name="Photo_Binary" Type="Binary" Nullable="false" MaxLength="50" FixedLength="true" />
+          <Property Name="Photo_Path" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Users" Relationship="Model.FK_UsersPhoto_Users" FromRole="UsersPhoto" ToRole="Users" />
+        </EntityType>
+        <Association Name="FK_UsersPhoto_Users">
+          <End Type="Model.Users" Role="Users" Multiplicity="1" />
+          <End Type="Model.UsersPhoto" Role="UsersPhoto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="id_User" />
+            </Principal>
+            <Dependent Role="UsersPhoto">
+              <PropertyRef Name="id_User" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -665,6 +718,16 @@
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="Birthday_User" ColumnName="Birthday_User" />
                 <ScalarProperty Name="id_Role" ColumnName="id_Role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UsersPhoto">
+            <EntityTypeMapping TypeName="Model.UsersPhoto">
+              <MappingFragment StoreEntitySet="UsersPhoto">
+                <ScalarProperty Name="Photo_Path" ColumnName="Photo_Path" />
+                <ScalarProperty Name="Photo_Binary" ColumnName="Photo_Binary" />
+                <ScalarProperty Name="id_User" ColumnName="id_User" />
+                <ScalarProperty Name="id_Photo" ColumnName="id_Photo" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

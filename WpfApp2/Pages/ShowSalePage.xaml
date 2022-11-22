@@ -35,6 +35,6 @@
             
             </ListView.ItemTemplate>
         </ListView>
-        <Button HorizontalAlignment="Left" Height="35" VerticalAlignment="Top" Name="btnCreateSale" Click="btnCreateCat_Click">Добавить продажу</Button>
+        <Button HorizontalAlignment="Left" Height="35" VerticalAlignment="Top" Name="btnCreateSale" Click="btnCreateSale_Click">Добавить продажу</Button>
     </Grid>
 </Page>

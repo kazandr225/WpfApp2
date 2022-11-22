@@ -25,6 +25,8 @@
         <AssociationConnector Association="Model.FK_Product_Supply" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_Sale_Product" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_Users_Role" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Model.UsersPhoto" Width="1.5" PointX="10.5" PointY="8.125" />
+        <AssociationConnector Association="Model.FK_UsersPhoto_Users" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

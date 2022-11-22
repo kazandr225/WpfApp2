@@ -26,22 +26,22 @@ namespace WpfApp2.Pages
             InitializeComponent();
             listSale.ItemsSource = BaseClass.tBE.Sale.ToList();
         }
-        private void btnCreateSale(object sender, RoutedEventArgs e)
+        private void btnCreateSale_Click(object sender, RoutedEventArgs e)
         {
             FrameClass.MainFrame.Navigate(new CreateProductPage());
         }
-        private void tbAmountSale_Loaded() //Общее количество проданного товара
-        { 
+        //private void tbAmountSale_Loaded() //Общее количество проданного товара
+        //{ 
         
-        }
-        private void tbSale_Loaded() //Сумма полученных средств за определенный вид товара
-        {
+        //}
+        //private void tbSale_Loaded() //Сумма полученных средств за определенный вид товара
+        //{
 
-        }
-        private void tbENDSale_Loaded() //Сумма полученных с операции средств
-        {
+        //}
+        //private void tbENDSale_Loaded() //Сумма полученных с операции средств
+        //{
 
-        }
+        //}
         
     }
 }

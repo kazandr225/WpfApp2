@@ -9,8 +9,32 @@
       Title="UserPage" FontSize="18">
 
     <Grid>
-        <StackPanel>
-            <Button Name="btnBackMain" Click="btnBackMain_Click">Назад на главную</Button>
+        <StackPanel Orientation="Horizontal">
+            <StackPanel>
+                <Image Height="300" Width="300" Name="imUser" VerticalAlignment="Top" Source="\Resources\nophoto.jpg"/>
+                <Button Click="Button_Click_1">Изменить фото на новое</Button>
+                <Button Click="Button_Click_2">Добавить несколько фото</Button>
+                <Button Click="Button_Click_2">Изменить фото на старое</Button>
+            </StackPanel>
+            <StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,15">
+                    <TextBlock Margin="0,0,15,0">Фимилия пользователя</TextBlock>
+                    <TextBlock Name="tbSurname"></TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,15">
+                    <TextBlock Margin="0,0,15,0">Имя пользователя</TextBlock>
+                    <TextBlock Name="tbName"></TextBlock>
+                </StackPanel>
+                <Button Click="ChangeDataUser_Click">Изменить личные данные</Button>
+                <StackPanel Name="spGallery" Visibility="Collapsed">
+                    <StackPanel Orientation="Horizontal">
+                        <Button Name="btnBack" Click="btnBack_Click" IsEnabled="False">Назад</Button>
+                        <Image Width="200" Height="200" Name="imgGallery"></Image>
+                        <Button Name="btnNext" Click="btnNext_Click">Вперед</Button>
+                    </StackPanel>
+                    <Button Name="btnOld" Click="btnOld_Click">Изменить фото на старое</Button>
+                </StackPanel>
+            </StackPanel>
         </StackPanel>
     </Grid>
 </Page>
