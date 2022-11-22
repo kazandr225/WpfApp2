@@ -60,5 +60,9 @@ namespace WpfApp2.Pages
         {
             FrameClass.MainFrame.Navigate(new ShowSalePage());
         }
+        private void btnUserCab_Click(object sender, RoutedEventArgs e)
+        {
+            FrameClass.MainFrame.Navigate(new UserPage(user));
+        }
     }
 }

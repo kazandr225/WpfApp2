@@ -44,6 +44,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
@@ -88,6 +89,12 @@
     </Compile>
     <Compile Include="Pages\AutorizationPage.xaml.cs">
       <DependentUpon>AutorizationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ChangeAccountData.xaml.cs">
+      <DependentUpon>ChangeAccountData.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ChangeUserData.xaml.cs">
+      <DependentUpon>ChangeUserData.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\CreateProductPage.xaml.cs">
       <DependentUpon>CreateProductPage.xaml</DependentUpon>
@@ -145,6 +152,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\AutorizationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ChangeAccountData.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ChangeUserData.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

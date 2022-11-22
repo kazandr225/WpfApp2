@@ -114,8 +114,8 @@
           </Key>
           <Property Name="id_Photo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="id_User" Type="int" Nullable="false" />
-          <Property Name="Photo_Binary" Type="binary" MaxLength="50" Nullable="false" />
-          <Property Name="Photo_Path" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Photo_Binary" Type="varbinary(max)" />
+          <Property Name="Photo_Path" Type="nvarchar(max)" />
         </EntityType>
         <Association Name="FK_Employee_Gender">
           <End Role="Gender" Type="Self.Gender" Multiplicity="1" />
@@ -585,8 +585,8 @@
           </Key>
           <Property Name="id_Photo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="id_User" Type="Int32" Nullable="false" />
-          <Property Name="Photo_Binary" Type="Binary" Nullable="false" MaxLength="50" FixedLength="true" />
-          <Property Name="Photo_Path" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Photo_Binary" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Photo_Path" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Users" Relationship="Model.FK_UsersPhoto_Users" FromRole="UsersPhoto" ToRole="Users" />
         </EntityType>
         <Association Name="FK_UsersPhoto_Users">
