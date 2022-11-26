@@ -24,7 +24,12 @@ namespace WpfApp2.Pages
         public ShowSalePage()
         {
             InitializeComponent();
-            listSale.ItemsSource = BaseClass.tBE.Sale.ToList();
+            listProduct.ItemsSource = BaseClass.tBE.Product.ToList();
+
+            List<Product> BT = BaseClass.tBE.Product.ToList();
+
+            //программное заполнение выпадающего списка
+
         }
         private void btnCreateSale_Click(object sender, RoutedEventArgs e)
         {

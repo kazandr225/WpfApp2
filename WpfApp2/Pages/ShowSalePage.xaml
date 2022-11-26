@@ -8,8 +8,28 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ShowSalePage">
 
+    <Page.Resources>
+        <BitmapImage x:Key="defaultImage"  UriSource="/Resources/picture.png"/>
+    </Page.Resources>
+
     <Grid>
-        <ListView Name="listSale" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+        <StackPanel>
+            <StackPanel>
+                <Button  Name="btnCreateSale" Click="btnCreateSale_Click">Добавить продажу</Button>
+                <TextBlock Name="tbCount"></TextBlock>
+                <ComboBox Name="cbmProduct" SelectionChanged="cmbProduct_SelectionChanged"></ComboBox>
+                <GroupBox Header="Введите название продукта для поиска">
+                    <TextBox Name="tbSearch" TextChanged="tbSearch_TextChanged" Height="35" FontSize="18"></TextBox>
+                </GroupBox>
+                <CheckBox Name="cbPhoto"></CheckBox>
+                <ComboBox Name="cmbSort" SelectionChanged="cmbProduct_SectionChanged">
+                    <ComboBoxItem>Без сортировки</ComboBoxItem>
+                    <ComboBoxItem>По названию от А до Я</ComboBoxItem>
+                    <ComboBoxItem>По названию от Я до А</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+        
+        <ListView Name="listProduct" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel HorizontalAlignment="Center"></WrapPanel>
@@ -22,10 +42,11 @@
                         <Grid Name="gridMain" Width="500" Height="500" Background="{Binding GenderColor}">
                             <StackPanel>
                                 <TextBlock Text="{Binding Product.Name_Product}"/>
-                                <!--<TextBlock Uid="{Binding id_Sale}" Name="tbAmountSale" Loaded="tbAmountSale_Loaded"></TextBlock>-->
-                                <TextBlock Text="{Binding Employee.Surname}"></TextBlock>
+                                    <TextBlock Text="{Binding Proroduct.ParchaseCost}"/>
+                                    <!--<TextBlock Uid="{Binding id_Sale}" Name="tbAmountSale" Loaded="tbAmountSale_Loaded"></TextBlock>-->
+                                <!--<TextBlock Text="{Binding Employee.Surname}"></TextBlock>
                                 <TextBlock Text="{Binding Employee.Name}"></TextBlock>
-                                <TextBlock Text="{Binding Employee.Patronymic}"></TextBlock>
+                                <TextBlock Text="{Binding Employee.Patronymic}"></TextBlock>-->
                                 
                                 
                             </StackPanel> 
@@ -35,6 +56,6 @@
             
             </ListView.ItemTemplate>
         </ListView>
-        <Button HorizontalAlignment="Left" Height="35" VerticalAlignment="Top" Name="btnCreateSale" Click="btnCreateSale_Click">Добавить продажу</Button>
+        </StackPanel>
     </Grid>
 </Page>
