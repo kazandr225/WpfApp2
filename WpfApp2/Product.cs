@@ -21,8 +21,8 @@ namespace WpfApp2
         }
     
         public int id_Product { get; set; }
-        public int id_Supply { get; set; }
-        public int id_Kind { get; set; }
+        public Nullable<int> id_Supply { get; set; }
+        public Nullable<int> id_Kind { get; set; }
         public string Name_Product { get; set; }
         public int PurchaseCost { get; set; }
         public int SellingPrice { get; set; }

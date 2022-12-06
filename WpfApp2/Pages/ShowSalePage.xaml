@@ -43,9 +43,9 @@
                                 <!--<TextBlock Text="{Binding Employee.Surname}"></TextBlock>
                                 <TextBlock Text="{Binding Employee.Name}"></TextBlock>
                                 <TextBlock Text="{Binding Employee.Patronymic}"></TextBlock>-->
-                                
-                                
-                            </StackPanel> 
+                                    <Button Uid="{Binding id_Product}" Content="Удалить" Click="Buttondeleate_Click"></Button>
+                                    <Button Uid="{Binding id_Product}" Content="Редактировать" Name="btnupdate" Click="btnupdate_Click"></Button>
+                                </StackPanel> 
                         </Grid>
                     </Border>
             </DataTemplate>

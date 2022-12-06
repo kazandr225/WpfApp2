@@ -78,6 +78,24 @@ namespace WpfApp2.Pages
             Filter();
         }
 
+        private void Buttondeleate_Click(object sender, RoutedEventArgs e)
+        {
+            Button btn = (Button)sender;
+            int index = Convert.ToInt32(btn.Uid);
+
+            Product product = BaseClass.tBE.Product.FirstOrDefault(x => x.id_Product == index);
+
+            BaseClass.tBE.Product.Remove(product);
+            BaseClass.tBE.SaveChanges();
+
+            FrameClass.MainFrame.Navigate(new ShowSalePage());
+        }
+
+        private void btnupdate_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
         //private void tbAmountSale_Loaded() //Общее количество проданного товара
         //{ 
 
