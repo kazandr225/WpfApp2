@@ -15,18 +15,12 @@
     <Grid>
         <StackPanel>
             <StackPanel>
-                <Button  Name="btnCreateSale" Click="btnCreateSale_Click">Добавить продажу</Button>
+                <Button  Name="btnCreateSale" Click="btnCreateSale_Click">Добавить продукт</Button>
                 <TextBlock Name="tbCount"></TextBlock>
                 <ComboBox Name="cbmProduct" SelectionChanged="cmbProduct_SelectionChanged"></ComboBox>
                 <GroupBox Header="Введите название продукта для поиска">
                     <TextBox Name="tbSearch" TextChanged="tbSearch_TextChanged" Height="35" FontSize="18"></TextBox>
                 </GroupBox>
-                <CheckBox Name="cbPhoto"></CheckBox>
-                <ComboBox Name="cmbSort" SelectionChanged="cmbProduct_SectionChanged">
-                    <ComboBoxItem>Без сортировки</ComboBoxItem>
-                    <ComboBoxItem>По названию от А до Я</ComboBoxItem>
-                    <ComboBoxItem>По названию от Я до А</ComboBoxItem>
-                </ComboBox>
             </StackPanel>
         
         <ListView Name="listProduct" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
@@ -41,8 +35,10 @@
                     <Border Padding="5" CornerRadius="5" BorderThickness="1" BorderBrush="Aquamarine">
                         <Grid Name="gridMain" Width="500" Height="500" Background="{Binding GenderColor}">
                             <StackPanel>
-                                <TextBlock Text="{Binding Product.Name_Product}"/>
-                                    <TextBlock Text="{Binding Proroduct.ParchaseCost}"/>
+                                    <TextBlock Text="{Binding Name_Product}"></TextBlock>
+                                    <TextBlock Text="{Binding PurchaseCost, StringFormat=Стоимость:{0}}"></TextBlock>
+                                    <TextBlock Text="{Binding SellingPrice, StringFormat=Цена:{0}}"></TextBlock>
+                                    <TextBlock Text="{Binding Amount_Product, StringFormat=Количество:{0}}"></TextBlock>
                                     <!--<TextBlock Uid="{Binding id_Sale}" Name="tbAmountSale" Loaded="tbAmountSale_Loaded"></TextBlock>-->
                                 <!--<TextBlock Text="{Binding Employee.Surname}"></TextBlock>
                                 <TextBlock Text="{Binding Employee.Name}"></TextBlock>

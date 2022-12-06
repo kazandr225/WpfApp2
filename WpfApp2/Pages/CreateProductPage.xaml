@@ -11,8 +11,8 @@
     <Grid>
         <ScrollViewer>
             <StackPanel>
-                <GroupBox Header="Введите">
-                    
+                <GroupBox Header="Введите название продукта">
+                    <TextBox Name="tbname"></TextBox>
                 </GroupBox>
             </StackPanel>
         </ScrollViewer>
