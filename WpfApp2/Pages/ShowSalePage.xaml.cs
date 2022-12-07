@@ -65,6 +65,22 @@ namespace WpfApp2.Pages
                 productList = productList.Where(x => x.Name_Product.ToLower().Contains(tbSearch.Text.ToLower())).ToList();
             }
 
+            // сортировка
+            switch (cmbSort.SelectedIndex)
+            {
+                case 1:
+                    {
+                        productList.Sort((x, y) => x.Name_Product.CompareTo(y.Name_Product));
+                    }
+                    break;
+                case 2:
+                    {
+                        productList.Sort((x, y) => x.Name_Product.CompareTo(y.Name_Product));
+                        productList.Reverse();
+                    }
+                    break;
+            }
+
             listProduct.ItemsSource = productList;
         }
 

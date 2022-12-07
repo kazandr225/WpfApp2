@@ -21,6 +21,11 @@
                 <GroupBox Header="Введите название продукта для поиска">
                     <TextBox Name="tbSearch" TextChanged="tbSearch_TextChanged" Height="35" FontSize="18"></TextBox>
                 </GroupBox>
+                <ComboBox Name="cmbSort" SelectionChanged="cmbProduct_SelectionChanged">
+                    <ComboBoxItem>Без сортировки</ComboBoxItem>
+                    <ComboBoxItem>По имени от A до Я</ComboBoxItem>
+                    <ComboBoxItem>По имени от Я до А</ComboBoxItem>
+                </ComboBox>
             </StackPanel>
         
         <ListView Name="listProduct" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
