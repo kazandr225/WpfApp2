@@ -21,42 +21,52 @@
                 <GroupBox Header="Введите название продукта для поиска">
                     <TextBox Name="tbSearch" TextChanged="tbSearch_TextChanged" Height="35" FontSize="18"></TextBox>
                 </GroupBox>
+                <CheckBox Name="cbBenefit" Checked="cbBenefit_Checked" Unchecked="cbBenefit_Checked">Выгодные партии товаров</CheckBox>
                 <ComboBox Name="cmbSort" SelectionChanged="cmbProduct_SelectionChanged">
                     <ComboBoxItem>Без сортировки</ComboBoxItem>
                     <ComboBoxItem>По имени от A до Я</ComboBoxItem>
                     <ComboBoxItem>По имени от Я до А</ComboBoxItem>
                 </ComboBox>
             </StackPanel>
-        
-        <ListView Name="listProduct" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
-            <ListView.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <WrapPanel HorizontalAlignment="Center"></WrapPanel>
-                </ItemsPanelTemplate>
-            </ListView.ItemsPanel>
-            
-            <ListView.ItemTemplate>
-            <DataTemplate>
-                    <Border Padding="5" CornerRadius="5" BorderThickness="1" BorderBrush="Aquamarine">
-                        <Grid Name="gridMain" Width="500" Height="500" Background="{Binding GenderColor}">
-                            <StackPanel>
+
+            <ListView Name="listProduct" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel HorizontalAlignment="Center"></WrapPanel>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Border Padding="5" CornerRadius="5" BorderThickness="1" BorderBrush="Aquamarine">
+                            <Grid Name="gridMain" Width="500" Height="500" Background="{Binding GenderColor}">
+                                <StackPanel>
                                     <TextBlock Text="{Binding Name_Product}"></TextBlock>
                                     <TextBlock Text="{Binding PurchaseCost, StringFormat=Стоимость:{0}}"></TextBlock>
                                     <TextBlock Text="{Binding SellingPrice, StringFormat=Цена:{0}}"></TextBlock>
                                     <TextBlock Text="{Binding Amount_Product, StringFormat=Количество:{0}}"></TextBlock>
-                                    <!--<TextBlock Uid="{Binding id_Sale}" Name="tbAmountSale" Loaded="tbAmountSale_Loaded"></TextBlock>-->
-                                <!--<TextBlock Text="{Binding Employee.Surname}"></TextBlock>
-                                <TextBlock Text="{Binding Employee.Name}"></TextBlock>
-                                <TextBlock Text="{Binding Employee.Patronymic}"></TextBlock>-->
                                     <Button Uid="{Binding id_Product}" Content="Удалить" Click="Buttondeleate_Click"></Button>
                                     <Button Uid="{Binding id_Product}" Content="Редактировать" Name="btnupdate" Click="btnupdate_Click"></Button>
-                                </StackPanel> 
-                        </Grid>
-                    </Border>
-            </DataTemplate>
-            
-            </ListView.ItemTemplate>
-        </ListView>
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <!--Меню с номерами страниц-->
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                <GroupBox Header="Введите количество записей на одной странице">
+                    <TextBox Name="txtPageCount" TextChanged="txtPageCount_TextChanged"/>
+                </GroupBox>
+                <TextBlock Name="txtPrev" Uid="prev" Text=" &lt; " MouseDown="GoPage_MouseDown"/>
+                <TextBlock Name="txt1" Uid="1" Text="{Binding  Path = NPage[0]}" Visibility="{Binding Visible[0]}" FontWeight="{Binding Bold[0]}" MouseDown="GoPage_MouseDown"/>
+                <TextBlock Name="txt2" Uid="2" Text="{Binding  Path = NPage[1]}" Visibility="{Binding Visible[1]}" FontWeight="{Binding Bold[1]}" MouseDown="GoPage_MouseDown"/>
+                <TextBlock Name="txt3" Uid="3" Text="{Binding  Path = NPage[2]}" Visibility="{Binding Visible[2]}" FontWeight="{Binding Bold[2]}" MouseDown="GoPage_MouseDown"/>
+                <TextBlock Name="txt4" Uid="4" Text="{Binding  Path = NPage[3]}" Visibility="{Binding Visible[3]}" FontWeight="{Binding Bold[3]}" MouseDown="GoPage_MouseDown"/>
+                <TextBlock Name="txt5" Uid="5" Text="{Binding  Path = NPage[4]}" Visibility="{Binding Visible[4]}" FontWeight="{Binding Bold[4]}" MouseDown="GoPage_MouseDown"/>
+                <TextBlock Name="txtNext" Uid="next" Text=" &gt;" MouseDown="GoPage_MouseDown"/>
+            </StackPanel>
         </StackPanel>
     </Grid>
 </Page>

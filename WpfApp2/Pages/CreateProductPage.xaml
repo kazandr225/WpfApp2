@@ -24,9 +24,11 @@
                     <TextBox Name="tbAmount_Product"></TextBox>
                 </GroupBox>
                 <GroupBox Header="Выберите вид товара">
-                    <ListBox Name="lbKind" SelectionMode="Multiple"></ListBox> <!--тут на комбобокс заменить можно-->
+                    <ComboBox Name="cmbKind"></ComboBox>
                 </GroupBox>
-                
+                <GroupBox Header="Выберите номер поставки товара">
+                    <ComboBox Name="cmbSupply"></ComboBox>
+                </GroupBox>
             </StackPanel>
         </ScrollViewer>
         

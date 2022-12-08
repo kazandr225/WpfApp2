@@ -23,6 +23,7 @@
         <StackPanel HorizontalAlignment="Right" Grid.Column="2" Grid.Row="0">
             <Button Name="btnAutorization" Click="btnAutorization_Click" >Авторизация</Button>
             <Button Name="btnregistration" Click="btnRegistration_Click" >Регистрация</Button>
+            <Button Name="btnAdvertising" Click="btnAdvertising_Click">Реклама</Button>
         </StackPanel>
 
         <Frame Name="fMain" Grid.Row="1" Grid.ColumnSpan="3" NavigationUIVisibility="Hidden">

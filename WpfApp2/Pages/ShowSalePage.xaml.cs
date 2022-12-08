@@ -21,12 +21,19 @@ namespace WpfApp2.Pages
     /// </summary>
     public partial class ShowSalePage : Page
     {
+        PageChange pc = new PageChange();
+        List<Product> ProductFilter = new List<Product>();
         public ShowSalePage()
         {
             InitializeComponent();
-            listProduct.ItemsSource = BaseClass.tBE.Product.ToList();
+            BaseClass.tBE = new ShopModelEntities();
+            ProductFilter = BaseClass.tBE.Product.ToList();
 
+            listProduct.ItemsSource = BaseClass.tBE.Product.ToList();
             List<Kind> BT = BaseClass.tBE.Kind.ToList();
+
+            pc.CountPage = BaseClass.tBE.Product.ToList().Count;
+            DataContext = pc; // добавляем объект для отображения страниц в ресурсы страницы
 
             //программное заполнение выпадающего списка
             cbmProduct.Items.Add("Все продукты");
@@ -110,6 +117,46 @@ namespace WpfApp2.Pages
         private void btnupdate_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void txtPageCount_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            try
+            {
+                pc.CountPage = Convert.ToInt32(txtPageCount.Text); // если в текстовом поле есnь значение, присваиваем его свойству объекта, которое хранит количество записей на странице
+            }
+            catch
+            {
+                pc.CountPage = ProductFilter.Count; // если в текстовом поле значения нет, присваиваем свойству объекта, которое хранит количество записей на странице количество элементов в списке
+            }
+            pc.Countlist = ProductFilter.Count; // присваиваем новое значение свойству, которое в объекте отвечает за общее количество записей
+            listProduct.ItemsSource = ProductFilter.Skip(0).Take(pc.CurrentPage).ToList();   // отображаем первые записи в том количестве, которое равно CountPage
+            pc.CurrentPage = 1; // текущая страница - это страница 1
+        }
+
+        private void GoPage_MouseDown(object sender, MouseButtonEventArgs e) // обработка нажатия на один из Textblock в меню с номерами страниц
+        {
+            TextBlock tb = (TextBlock)sender;
+
+            switch (tb.Uid) // определяем, куда конкретно было сделано нажатие
+            {
+                case "prev":
+                    pc.CurrentPage--;
+                    break;
+                case "next":
+                    pc.CurrentPage++;
+                    break;
+                    default:
+                    pc.CurrentPage = Convert.ToInt32(tb.Text);
+                    break;  
+            }
+
+            listProduct.ItemsSource = ProductFilter.Skip(pc.CurrentPage * pc.CountPage - pc.CountPage).Take(pc.CountPage).ToList(); // оображение записей постранично с определенным количеством на каждой странице
+        }
+
+        private void cbBenefit_Checked(object sender, RoutedEventArgs e)
+        {
+            Filter();
         }
 
         //private void tbAmountSale_Loaded() //Общее количество проданного товара

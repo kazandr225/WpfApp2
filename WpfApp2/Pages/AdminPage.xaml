@@ -21,7 +21,7 @@
                     <DataGridTextColumn Header="Пол" Binding="{Binding Gender.Gender1}"></DataGridTextColumn>
                 </DataGrid.Columns>
             </DataGrid>
-            <Button Name="btnSalles" Click="btnShowSale_Click">Показать продажи</Button>
+            <Button Name="btnSalles" Click="btnShowSale_Click">Показать доступные продукты</Button>
             <Button Name="btnMain" Click="btnMain_Click">Назад на главную</Button>
             <Button Name="btnUserCab" Click="btnUserCab_Click">Личный кибинет</Button>
         </StackPanel>

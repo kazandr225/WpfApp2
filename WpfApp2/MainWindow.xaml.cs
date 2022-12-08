@@ -49,5 +49,10 @@ namespace WpfApp2
         {
             FrameClass.MainFrame.Navigate(new RegistrationPage());
         }
+
+        private void btnAdvertising_Click(object sender, RoutedEventArgs e)
+        {
+            FrameClass.MainFrame.Navigate(new AdvertisingPage());
+        }
     }
 }
