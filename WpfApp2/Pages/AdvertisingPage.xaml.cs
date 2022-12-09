@@ -37,11 +37,11 @@ namespace WpfApp2.Pages
             btnAdd.BeginAnimation(WidthProperty, WA); // «навешивание» анимации на свойство ширины кнопки
 
             DoubleAnimation WAA = new DoubleAnimation();
-            WAA.From = 100; // начальное значение свойства
-            WAA.To = 150; // конечное значение свойства
-            WAA.Duration = TimeSpan.FromSeconds(1); // продолжительность анимации (в секундах)
-            WAA.RepeatBehavior = RepeatBehavior.Forever; // бесконечность анимации
-            WAA.AutoReverse = true; // воспроизведение временной шкалы в обратном порядке
+            WAA.From = 100; 
+            WAA.To = 150; 
+            WAA.Duration = TimeSpan.FromSeconds(1); 
+            WAA.RepeatBehavior = RepeatBehavior.Forever; 
+            WAA.AutoReverse = true;
             btnAdd.BeginAnimation(HeightProperty, WAA);
 
             ThicknessAnimation MA = new ThicknessAnimation(); // анимация границ
@@ -68,35 +68,31 @@ namespace WpfApp2.Pages
             img.BeginAnimation(MarginProperty, IM);
 
             DoubleAnimation IM1 = new DoubleAnimation(); //Ширина картинки
-            IM1.From = 100; // начальное значение свойства
-            IM1.To = 300; // конечное значение свойства
-            IM1.Duration = TimeSpan.FromSeconds(2); // продолжительность анимации (в секундах)
-            IM1.AutoReverse = false; // воспроизведение временной шкалы в обратном порядке
-            img.BeginAnimation(WidthProperty, IM1); // «навешивание» анимации на свойство ширины кнопки
+            IM1.From = 100; 
+            IM1.To = 300; 
+            IM1.Duration = TimeSpan.FromSeconds(2); 
+            IM1.AutoReverse = false; 
+            img.BeginAnimation(WidthProperty, IM1); 
 
             DoubleAnimation IM2 = new DoubleAnimation(); //Высота картинки
-            IM2.From = 100; // начальное значение свойства
-            IM2.To = 150; // конечное значение свойства
-            IM2.Duration = TimeSpan.FromSeconds(2); // продолжительность анимации (в секундах)
-            IM2.AutoReverse = false; // воспроизведение временной шкалы в обратном порядке
+            IM2.From = 100;
+            IM2.To = 150;
+            IM2.Duration = TimeSpan.FromSeconds(2); 
+            IM2.AutoReverse = false; 
             img.BeginAnimation(HeightProperty, IM2);
 
-            DoubleAnimation TB1 = new DoubleAnimation();
-            TB1.From = 20; // начальное значение свойства
-            TB1.To = 35; // конечное значение свойства
-            TB1.Duration = TimeSpan.FromSeconds(1); // продолжительность анимации (в секундах)
-            //TB1.RepeatBehavior = RepeatBehavior.Forever; // бесконечность анимации
-            TB1.AutoReverse = true; // воспроизведение временной шкалы в обратном порядке
+            DoubleAnimation TB1 = new DoubleAnimation(); //изменение размера текста текстбоксов
+            TB1.From = 20; 
+            TB1.To = 35; 
+            TB1.Duration = TimeSpan.FromSeconds(1); 
             tbTap.BeginAnimation(FontSizeProperty, TB1);
 
             DoubleAnimation TB2 = new DoubleAnimation();
-            TB2.From = 20; // начальное значение свойства
-            TB2.To = 35; // конечное значение свойства
-            TB2.Duration = TimeSpan.FromSeconds(1); // продолжительность анимации (в секундах)
-            //TB2.RepeatBehavior = RepeatBehavior.Forever; // бесконечность анимации
-            TB2.AutoReverse = true; // воспроизведение временной шкалы в обратном порядке
+            TB2.From = 20; 
+            TB2.To = 35; 
+            TB2.Duration = TimeSpan.FromSeconds(1); 
+            TB2.AutoReverse = true;
             tbTap1.BeginAnimation(FontSizeProperty, TB2);
-
 
         }
     }
