@@ -8,11 +8,24 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="AdvertisingPage">
 
-    <Grid>
-        <StackPanel>
-        <Button>Сlick on me!</Button>
-        <Button> Реклама </Button>
+    <Grid ShowGridLines="False">
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
 
-        </StackPanel>
+        <Image Grid.Column="1"  Name="img" Height="100" Width="100" Source="/Resources/logotip.jpg"></Image>
+
+        <TextBlock Grid.Column="0" Grid.Row="1" Name = "tbTap" TextAlignment="Center" VerticalAlignment="Center">Разнообразный ассортимент</TextBlock >
+        <Button Grid.Column="1" Grid.Row="1" Name = "btnAdd" Click = "btnAdd_Click" HorizontalAlignment = "Stretch" Content="Приходите к нам!" ></Button >
+        <TextBlock Grid.Column="2" Grid.Row="1" Name = "tbTap1" TextAlignment="Center" VerticalAlignment="Center">Доступные цены</TextBlock >
+        
     </Grid>
+    
 </Page>
