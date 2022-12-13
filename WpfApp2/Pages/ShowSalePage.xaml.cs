@@ -72,6 +72,12 @@ namespace WpfApp2.Pages
                 productList = productList.Where(x => x.Name_Product.ToLower().Contains(tbSearch.Text.ToLower())).ToList();
             }
 
+            //вывод элемента с фото
+            if (cbBenefit.IsChecked == true)
+            {
+                
+            }
+
             // сортировка
             switch (cmbSort.SelectedIndex)
             {
@@ -106,16 +112,24 @@ namespace WpfApp2.Pages
             Button btn = (Button)sender;
             int index = Convert.ToInt32(btn.Uid);
 
+            //Создаем объект, который содержит инвормацию о продукте, который нужно удалить
             Product product = BaseClass.tBE.Product.FirstOrDefault(x => x.id_Product == index);
 
             BaseClass.tBE.Product.Remove(product);
             BaseClass.tBE.SaveChanges();
 
-            FrameClass.MainFrame.Navigate(new ShowSalePage());
+            FrameClass.MainFrame.Navigate(new ShowSalePage()); //перезагрузка страницы для отображения списка без удаленного продукта
         }
 
         private void btnupdate_Click(object sender, RoutedEventArgs e)
         {
+            Button btn = (Button)sender;
+            int index = Convert.ToInt32(btn.Uid);
+
+            //Создаем объект, который содержит продукт, который редактируем
+            Product product = BaseClass.tBE.Product.FirstOrDefault(x => x.id_Product == index);
+
+            FrameClass.MainFrame.Navigate(new CreateProductPage(product)); 
 
         }
 
@@ -159,18 +173,23 @@ namespace WpfApp2.Pages
             Filter();
         }
 
-        //private void tbAmountSale_Loaded() //Общее количество проданного товара
-        //{ 
+        private void tbRevenue_Loaded(object sender, RoutedEventArgs e) //Сколько денег будет получено после продажи товара, стоимость закупки не учитывается
+        {
+            TextBlock tb = (TextBlock)sender;
+            int index = Convert.ToInt32(tb.Uid);
 
-        //}
-        //private void tbSale_Loaded() //Сумма полученных средств за определенный вид товара
-        //{
+            //ищем в таблице, где хранится информация про количество товара и стоимости продажи
+            List<Product> P = BaseClass.tBE.Product.Where(x=>x.id_Product==index).ToList();
 
-        //}
-        //private void tbENDSale_Loaded() //Сумма полученных с операции средств
-        //{
+            int sum = 0;
 
-        //}
+            //вычисляем количество денег
+            foreach (Product prod in P)
+            {
+                sum += Convert.ToInt32(prod.Amount_Product * prod.SellingPrice);
+            }
 
+            tb.Text = "Выручка составит: " + sum.ToString()+ " руб.";
+        }
     }
 }

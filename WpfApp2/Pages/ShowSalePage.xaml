@@ -29,7 +29,7 @@
                 </ComboBox>
             </StackPanel>
 
-            <ListView Name="listProduct" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+            <ListView Name="listProduct" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Height="450">
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
                         <WrapPanel HorizontalAlignment="Center"></WrapPanel>
@@ -45,6 +45,7 @@
                                     <TextBlock Text="{Binding PurchaseCost, StringFormat=Стоимость:{0}}"></TextBlock>
                                     <TextBlock Text="{Binding SellingPrice, StringFormat=Цена:{0}}"></TextBlock>
                                     <TextBlock Text="{Binding Amount_Product, StringFormat=Количество:{0}}"></TextBlock>
+                                    <TextBlock Uid="{Binding id_Product}" Name="tbRevenue" Loaded="tbRevenue_Loaded"></TextBlock>
                                     <Button Uid="{Binding id_Product}" Content="Удалить" Click="Buttondeleate_Click"></Button>
                                     <Button Uid="{Binding id_Product}" Content="Редактировать" Name="btnupdate" Click="btnupdate_Click"></Button>
                                 </StackPanel>

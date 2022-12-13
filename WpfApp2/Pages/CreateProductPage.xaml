@@ -26,12 +26,16 @@
                 <GroupBox Header="Выберите вид товара">
                     <ComboBox Name="cmbKind"></ComboBox>
                 </GroupBox>
-                <GroupBox Header="Выберите номер поставки товара">
+                <!--<GroupBox Header="Выберите номер поставки товара">
                     <ComboBox Name="cmbSupply"></ComboBox>
+                </GroupBox>-->
+                <GroupBox Header="Выберите номер поставщика">
+                    <ComboBox Name="cmbContractor"></ComboBox>
                 </GroupBox>
+                <Image Name="photoProduct" Width="50" Height="50"></Image>
+                <Button Name="btnPhoto" Click="btnPhoto_Click"></Button>
+                <Button Name="btnAdd" Click="btnAdd_Click">Сохранить информацию</Button>
             </StackPanel>
         </ScrollViewer>
-        
-        
     </Grid>
 </Page>
