@@ -247,6 +247,7 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\mt.jpg" />
     <Resource Include="Resources\picture.png" />
     <Resource Include="Resources\nophoto.jpg" />
     <Resource Include="Resources\logotip.jpg" />

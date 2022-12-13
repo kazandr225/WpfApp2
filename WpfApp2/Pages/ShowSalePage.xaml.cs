@@ -73,9 +73,9 @@ namespace WpfApp2.Pages
             }
 
             //вывод элемента с фото
-            if (cbBenefit.IsChecked == true)
+            if (cbPhoto.IsChecked == true)
             {
-                
+                productList = productList.Where(x=>x.Photo!=null).ToList();
             }
 
             // сортировка
@@ -168,11 +168,6 @@ namespace WpfApp2.Pages
             listProduct.ItemsSource = ProductFilter.Skip(pc.CurrentPage * pc.CountPage - pc.CountPage).Take(pc.CountPage).ToList(); // оображение записей постранично с определенным количеством на каждой странице
         }
 
-        private void cbBenefit_Checked(object sender, RoutedEventArgs e)
-        {
-            Filter();
-        }
-
         private void tbRevenue_Loaded(object sender, RoutedEventArgs e) //Сколько денег будет получено после продажи товара, стоимость закупки не учитывается
         {
             TextBlock tb = (TextBlock)sender;
@@ -190,6 +185,11 @@ namespace WpfApp2.Pages
             }
 
             tb.Text = "Выручка составит: " + sum.ToString()+ " руб.";
+        }
+
+        private void cbPhoto_Checked(object sender, RoutedEventArgs e)
+        {
+            Filter();
         }
     }
 }

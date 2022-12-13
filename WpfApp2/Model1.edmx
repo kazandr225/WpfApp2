@@ -59,6 +59,7 @@
           <Property Name="PurchaseCost" Type="int" Nullable="false" />
           <Property Name="SellingPrice" Type="int" Nullable="false" />
           <Property Name="Amount_Product" Type="int" Nullable="false" />
+          <Property Name="Photo" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -411,6 +412,7 @@
           <Property Name="PurchaseCost" Type="Int32" Nullable="false" />
           <Property Name="SellingPrice" Type="Int32" Nullable="false" />
           <Property Name="Amount_Product" Type="Int32" Nullable="false" />
+          <Property Name="Photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Kind" Relationship="Model.FK_Product_Kind" FromRole="Product" ToRole="Kind" />
           <NavigationProperty Name="Supply" Relationship="Model.FK_Product_Supply" FromRole="Product" ToRole="Supply" />
           <NavigationProperty Name="Sale" Relationship="Model.FK_Sale_Product" FromRole="Product" ToRole="Sale" />
@@ -601,7 +603,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -658,6 +660,7 @@
           <EntitySetMapping Name="Product">
             <EntityTypeMapping TypeName="Model.Product">
               <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
                 <ScalarProperty Name="Amount_Product" ColumnName="Amount_Product" />
                 <ScalarProperty Name="SellingPrice" ColumnName="SellingPrice" />
                 <ScalarProperty Name="PurchaseCost" ColumnName="PurchaseCost" />

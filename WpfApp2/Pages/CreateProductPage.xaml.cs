@@ -51,7 +51,12 @@ namespace WpfApp2.Pages
             cmbKind.SelectedIndex = (int)(product.id_Kind - 1); //выводим вид продукта
             cmbContractor.SelectedIndex = product.Supply.Contractor.id_Contractor - 1;//выводим поставщика
 
-
+            //Вывод картинки
+            if (product.Photo != null)
+            {
+                BitmapImage img = new BitmapImage(new Uri(product.Photo, UriKind.RelativeOrAbsolute));
+                photoProduct.Source = img;
+            }
         }
         //конструктор для создания нового продукта
         public CreateProductPage()
@@ -72,10 +77,10 @@ namespace WpfApp2.Pages
                 //Заполняем поля таблицы
                 PRODUCT.Name_Product = tbName_Product.Text;
                 PRODUCT.id_Kind = cmbKind.SelectedIndex + 1;
-                PRODUCT.PurchaseCost = Convert.ToInt32(tbPurchaseCost);
-                PRODUCT.SellingPrice = Convert.ToInt32(tbSellingPrice);
-                PRODUCT.Amount_Product = Convert.ToInt32(tbAmount_Product);
-                PRODUCT.
+                PRODUCT.PurchaseCost = Convert.ToInt32(tbPurchaseCost.Text);
+                PRODUCT.SellingPrice = Convert.ToInt32(tbSellingPrice.Text);
+                PRODUCT.Amount_Product = Convert.ToInt32(tbAmount_Product.Text);
+                PRODUCT.Photo = path;
 
                 //если флаг равен false, то добовляем объект в базу
                 if (flagUpdate == false)
@@ -96,7 +101,9 @@ namespace WpfApp2.Pages
         {
             OpenFileDialog OFD = new OpenFileDialog();
             OFD.ShowDialog();
-            
+            path = OFD.FileName;
+            string[] arrayPath = path.Split('\\');
+            path = "\\" + arrayPath[arrayPath.Length - 2] + "\\" + arrayPath[arrayPath.Length - 1];
         }
     }
 }

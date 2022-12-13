@@ -27,6 +27,7 @@ namespace WpfApp2
         public int PurchaseCost { get; set; }
         public int SellingPrice { get; set; }
         public int Amount_Product { get; set; }
+        public string Photo { get; set; }
     
         public virtual Kind Kind { get; set; }
         public virtual Supply Supply { get; set; }

@@ -21,7 +21,7 @@
                 <GroupBox Header="Введите название продукта для поиска">
                     <TextBox Name="tbSearch" TextChanged="tbSearch_TextChanged" Height="35" FontSize="18"></TextBox>
                 </GroupBox>
-                <CheckBox Name="cbBenefit" Checked="cbBenefit_Checked" Unchecked="cbBenefit_Checked">Выгодные партии товаров</CheckBox>
+                <CheckBox Name="cbPhoto" Checked="cbPhoto_Checked" Unchecked="cbPhoto_Checked">Показать элементы с фото</CheckBox>
                 <ComboBox Name="cmbSort" SelectionChanged="cmbProduct_SelectionChanged">
                     <ComboBoxItem>Без сортировки</ComboBoxItem>
                     <ComboBoxItem>По имени от A до Я</ComboBoxItem>
@@ -46,6 +46,7 @@
                                     <TextBlock Text="{Binding SellingPrice, StringFormat=Цена:{0}}"></TextBlock>
                                     <TextBlock Text="{Binding Amount_Product, StringFormat=Количество:{0}}"></TextBlock>
                                     <TextBlock Uid="{Binding id_Product}" Name="tbRevenue" Loaded="tbRevenue_Loaded"></TextBlock>
+                                    <Image Width="100" Height="100" Source="{Binding Photo, TargetNullValue={StaticResource defaultImage}}"></Image>
                                     <Button Uid="{Binding id_Product}" Content="Удалить" Click="Buttondeleate_Click"></Button>
                                     <Button Uid="{Binding id_Product}" Content="Редактировать" Name="btnupdate" Click="btnupdate_Click"></Button>
                                 </StackPanel>
