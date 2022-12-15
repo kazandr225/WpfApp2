@@ -191,5 +191,17 @@ namespace WpfApp2.Pages
         {
             Filter();
         }
+
+        private void GoFirstPage_MouseDown(object sender, MouseButtonEventArgs e) //переходим на первую страницу
+        {
+            pc.CurrentPage = 1;
+            listProduct.ItemsSource = ProductFilter.Skip(pc.CurrentPage * pc.CountPage - pc.CountPage).Take(pc.CountPage).ToList();
+        }
+
+        private void GoLastPage_MouseDown(object sender, MouseButtonEventArgs e) //переходим на последнюю страницу
+        {
+            pc.CurrentPage = pc.CountPages;
+            listProduct.ItemsSource = ProductFilter.Skip(pc.CurrentPage * pc.CountPage - pc.CountPage).Take(pc.CountPage).ToList();
+        }
     }
 }
