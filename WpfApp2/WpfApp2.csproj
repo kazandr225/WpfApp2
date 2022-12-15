@@ -68,6 +68,7 @@
     <Compile Include="Classes\BaseClass.cs" />
     <Compile Include="Classes\Class1.cs" />
     <Compile Include="Classes\FrameClass.cs" />
+    <Compile Include="Classes\ParticalProductClass.cs" />
     <Compile Include="Contractor.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
